@@ -5,6 +5,6 @@ IMAGE_DEPTH : 3
 MODEL_PATH_MANUFACTURER : models/planes_manufacturer.h5
 MODEL_PATH_FAMILY : models/planes_family.h5
 MODEL_PATH_VARIANT : models/planes_variant.h5
-SVM_PATH_MANUFACTURER : models/svm_manufacturer.h5
-SVM_PATH_FAMILY : models/svm_family.h5
-SVM_PATH_VARIANT : models/svm_variant.h5
+SVM_PATH_MANUFACTURER : models/SVM_manufacturer.sav
+SVM_PATH_FAMILY : models/SVM_family.sav
+SVM_PATH_VARIANT : models/SVM_variant.sav
