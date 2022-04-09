@@ -56,54 +56,55 @@ def load_model(path):
     """
     return tf.keras.models.load_model(path)
     
-model = st.sidebar.radio('Quelle méthode de prédiction voulez-vous utiliser ?',("Choisissez une méthode ", "Réseaux de neurones", "SVM"))
-option = st.sidebar.selectbox('Quel modèle voulez-vous utiliser ?',("Choisissez un modèle", MODEL_PATH_FAMILY, MODEL_PATH_MANUFACTURER, MODEL_PATH_VARIANT))
+model = st.sidebar.radio('Quelle méthode de prédiction voulez-vous utiliser ?',("Réseaux de neurones", "SVM"))
+if model =="Réseaux de neurones":
+    option = st.sidebar.selectbox('Quel modèle voulez-vous utiliser ?',("Choisissez un modèle", MODEL_PATH_FAMILY, MODEL_PATH_MANUFACTURER, MODEL_PATH_VARIANT))
 
-if option != "Choisissez un modèle": 
-    model = load_model(option)
-    model.summary()
+    if option != "Choisissez un modèle": 
+        model = load_model(option)
+        model.summary()
 
-    st.title("Identification d'avion")
+        st.title("Identification d'avion")
 
-    uploaded_file = st.file_uploader("Charger une image d'avion") #, accept_multiple_files=True)#
+        uploaded_file = st.file_uploader("Charger une image d'avion") #, accept_multiple_files=True)#
 
-    if uploaded_file:
-        loaded_image = load_image(uploaded_file)
-        st.image(loaded_image)
+        if uploaded_file:
+            loaded_image = load_image(uploaded_file)
+            st.image(loaded_image)
 
 
-    predict_btn = st.button("Identifier", disabled=(uploaded_file is None))
-    if predict_btn:
-        prediction = predict_image(uploaded_file, model)
-        if option == MODEL_PATH_FAMILY  :
-            st.write(f"C'est un : {CAT_FAMILY[prediction[0]]}")
-            st.write(f"Avec une probabilité de : {round(prediction[1]*100,2)}%")
-            st.write(f"Le code correspondant est le : {(prediction[0])}")
-            st.title("Graphique de la distribution des probabilités")
-            st.bar_chart(pd.DataFrame(prediction[2]).T)
-            st.write("Légende du graphique")
-            pred = pd.DataFrame({'catégorie':CAT_FAMILY, 'code':range(0,len(CAT_FAMILY))}).set_index('catégorie')
-            st.write(pred)
+        predict_btn = st.button("Identifier", disabled=(uploaded_file is None))
+        if predict_btn:
+            prediction = predict_image(uploaded_file, model)
+            if option == MODEL_PATH_FAMILY  :
+                st.write(f"C'est un : {CAT_FAMILY[prediction[0]]}")
+                st.write(f"Avec une probabilité de : {round(prediction[1]*100,2)}%")
+                st.write(f"Le code correspondant est le : {(prediction[0])}")
+                st.title("Graphique de la distribution des probabilités")
+                st.bar_chart(pd.DataFrame(prediction[2]).T)
+                st.write("Légende du graphique")
+                pred = pd.DataFrame({'catégorie':CAT_FAMILY, 'code':range(0,len(CAT_FAMILY))}).set_index('catégorie')
+                st.write(pred)
 
-        if option == MODEL_PATH_MANUFACTURER  :
-            st.write(f"C'est un : {CAT_MANUFACTURER[prediction[0]]}")   
-            st.write(f"Avec une probabilité de : {round(prediction[1]*100,2)}%")
-            st.write(f"Le code correspondant est le : {(prediction[0])}")
-            st.title("Graphique de la distribution des probabilités")
-            st.bar_chart(pd.DataFrame(prediction[2]).T)
-            st.write("Légende du graphique")
-            pred=pd.DataFrame({'catégorie':CAT_MANUFACTURER,
-                               'code':range(0,len(CAT_MANUFACTURER))}).set_index('catégorie')
-            st.write(pred)
+            if option == MODEL_PATH_MANUFACTURER  :
+                st.write(f"C'est un : {CAT_MANUFACTURER[prediction[0]]}")   
+                st.write(f"Avec une probabilité de : {round(prediction[1]*100,2)}%")
+                st.write(f"Le code correspondant est le : {(prediction[0])}")
+                st.title("Graphique de la distribution des probabilités")
+                st.bar_chart(pd.DataFrame(prediction[2]).T)
+                st.write("Légende du graphique")
+                pred=pd.DataFrame({'catégorie':CAT_MANUFACTURER,
+                                   'code':range(0,len(CAT_MANUFACTURER))}).set_index('catégorie')
+                st.write(pred)
 
-        if option == MODEL_PATH_VARIANT  :
-            st.write(f"C'est un : {CAT_VARIANT[prediction[0]]}")   
-            st.write(f"Avec une probabilité de : {round(prediction[1]*100,2)}%")
-            st.write(f"Le code correspondant est le : {(prediction[0])}")
-            st.title("Graphique de la distribution des probabilités")
-            st.bar_chart(pd.DataFrame(prediction[2]).T)
-            st.write("Légende du graphique")
-            pred=pd.DataFrame({'catégorie':CAT_VARIANT,
-                               'code':range(0,len(CAT_VARIANT))}).set_index('catégorie')
-            st.write(pred)
+            if option == MODEL_PATH_VARIANT  :
+                st.write(f"C'est un : {CAT_VARIANT[prediction[0]]}")   
+                st.write(f"Avec une probabilité de : {round(prediction[1]*100,2)}%")
+                st.write(f"Le code correspondant est le : {(prediction[0])}")
+                st.title("Graphique de la distribution des probabilités")
+                st.bar_chart(pd.DataFrame(prediction[2]).T)
+                st.write("Légende du graphique")
+                pred=pd.DataFrame({'catégorie':CAT_VARIANT,
+                                   'code':range(0,len(CAT_VARIANT))}).set_index('catégorie')
+                st.write(pred)
 
