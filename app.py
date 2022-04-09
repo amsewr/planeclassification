@@ -110,4 +110,5 @@ if model =="Réseaux de neurones":
                 pred=pd.DataFrame({'catégorie':CAT_VARIANT,
                                    'code':range(0,len(CAT_VARIANT))}).set_index('catégorie')
                 st.write(pred)
-
+if model =="SVM":
+    st.write("La prédiction est encore en construction...merci de patienter ! ")
