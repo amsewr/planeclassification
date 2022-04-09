@@ -65,8 +65,8 @@ if uploaded_file:
     loaded_image = load_image(uploaded_file)
     st.image(loaded_image)
     
-model = st.sidebar.radio('Quelle méthode de prédiction voulez-vous utiliser ?',("Réseaux de neurones", "SVM"))
-if model =="Réseaux de neurones":
+method = st.sidebar.radio('Quelle méthode de prédiction voulez-vous utiliser ?',("Réseaux de neurones", "SVM"))
+if method =="Réseaux de neurones":
     option = st.sidebar.selectbox('Que voulez-vous identifier ?',("Sélectionner votre cible", MODEL_PATH_FAMILY, MODEL_PATH_MANUFACTURER, MODEL_PATH_VARIANT))
     
     if option =="Sélectionner votre cible":
@@ -110,5 +110,5 @@ if model =="Réseaux de neurones":
                 pred=pd.DataFrame({'catégorie':CAT_VARIANT,
                                    'code':range(0,len(CAT_VARIANT))}).set_index('catégorie')
                 st.write(pred)
-if model =="SVM":
+if method =="SVM":
     st.write("La prédiction est encore en construction...merci de patienter ! ")
