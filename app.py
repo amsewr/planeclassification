@@ -67,7 +67,7 @@ if uploaded_file:
     
 model = st.sidebar.radio('Quelle méthode de prédiction voulez-vous utiliser ?',("Réseaux de neurones", "SVM"))
 if model =="Réseaux de neurones":
-    option = st.sidebar.selectbox('Quel modèle voulez-vous utiliser ?',("Choisissez un modèle", MODEL_PATH_FAMILY, MODEL_PATH_MANUFACTURER, MODEL_PATH_VARIANT))
+    option = st.sidebar.selectbox('Que voulez-vous identifier ?',("Choisissez un modèle", MODEL_PATH_FAMILY, MODEL_PATH_MANUFACTURER, MODEL_PATH_VARIANT))
 
     if option != "Choisissez un modèle": 
         model = load_model(option)
