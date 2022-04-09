@@ -141,44 +141,18 @@ if method =="SVM":
         st.write("Sélectionner votre cible")
     
     if option != "Sélectionner votre cible": 
-        model = load_model(option)
-        model.summary()
-
+        model = load_model_svm(option)
+        
         predict_btn = st.button("Identifier", disabled=(uploaded_file is None))
         if predict_btn:
-            prediction = predict_image(uploaded_file, model)
-            if option == MODEL_PATH_FAMILY  :
+            prediction = predict_image_bySVM(uploaded_file, model)
+            if option == SVM_PATH_FAMILY:
                 st.write(f"C'est un : {CAT_FAMILY[prediction[0]]}")
-                st.write(f"Avec une probabilité de : {round(prediction[1]*100,2)}%")
-                st.write(f"Le code correspondant est le : {(prediction[0])}")
-                st.title("Graphique de la distribution des probabilités")
-                st.bar_chart(pd.DataFrame(prediction[2]).T)
-                st.write("Légende du graphique")
-                pred = pd.DataFrame({'catégorie':CAT_FAMILY, 'code':range(0,len(CAT_FAMILY))}).set_index('catégorie')
-                st.write(pred)
 
-            if option == MODEL_PATH_MANUFACTURER  :
+            if option == SVM_PATH_MANUFACTURER  :
                 st.write(f"C'est un : {CAT_MANUFACTURER[prediction[0]]}")   
-                st.write(f"Avec une probabilité de : {round(prediction[1]*100,2)}%")
-                st.write(f"Le code correspondant est le : {(prediction[0])}")
-                st.title("Graphique de la distribution des probabilités")
-                st.bar_chart(pd.DataFrame(prediction[2]).T)
-                st.write("Légende du graphique")
-                pred=pd.DataFrame({'catégorie':CAT_MANUFACTURER,
-                                   'code':range(0,len(CAT_MANUFACTURER))}).set_index('catégorie')
-                st.write(pred)
-
-            if option == MODEL_PATH_VARIANT  :
+                
+            if option == SVM_PATH_VARIANT  :
                 st.write(f"C'est un : {CAT_VARIANT[prediction[0]]}")   
-                st.write(f"Avec une probabilité de : {round(prediction[1]*100,2)}%")
-                st.write(f"Le code correspondant est le : {(prediction[0])}")
-                st.title("Graphique de la distribution des probabilités")
-                st.bar_chart(pd.DataFrame(prediction[2]).T)
-                st.write("Légende du graphique")
-                pred=pd.DataFrame({'catégorie':CAT_VARIANT,
-                                   'code':range(0,len(CAT_VARIANT))}).set_index('catégorie')
-                st.write(pred)
-    
-    
-    
+               
 
