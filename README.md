@@ -1,6 +1,6 @@
 # planeclassification
 
-Le but de ce projet est de construire un modèle de classification fonctionnant sur des images d'avions. Lien vers la démo :
+Le but de ce projet est de construire un modèle de classification fonctionnant sur des images d'avions. Lien vers la démo : https://share.streamlit.io/amsewr/planeclassification/main/app.py
 
 # Setup 
 
