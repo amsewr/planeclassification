@@ -70,7 +70,7 @@ if model =="Réseaux de neurones":
     option = st.sidebar.selectbox('Que voulez-vous identifier ?',("Sélectionner votre cible", MODEL_PATH_FAMILY, MODEL_PATH_MANUFACTURER, MODEL_PATH_VARIANT))
     
     if option =="Sélectionner votre cible":
-        st.write("Sélectionner votre cible"
+        st.write("Sélectionner votre cible")
     
     if option != "Sélectionner votre cible": 
         model = load_model(option)
