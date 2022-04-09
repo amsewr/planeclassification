@@ -15,4 +15,5 @@ Le fichier du repository requirements.txt regroupe l'ensemble des prérequis pou
    Le fichier "cat.yaml" qui regroupe les listes des noms de catégories de nos variables est aussi enregistré dans ce même répertoire. 
 3) L'application est dévelopée dans le fichier "app.py" qui fonctionne à partir des fichiers "cat.yaml" précedemment cité ainsi que du fichier "app.yaml" regroupant      les paramètres d'initialisation parmis lesquels on retrouve les liens vers les modèles entrainés.
 4) L'application peut-être lancée à partir du terminal anaconda prompt en utilisant notamment la commande suivante : 
-   streamlit run app.py 
+   $ streamlit run app.py 
+5) Une fois l'application créée vous avez la possibilité de la déployer sur streamlit. 
