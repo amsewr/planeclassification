@@ -56,6 +56,7 @@ def load_model(path):
     """
     return tf.keras.models.load_model(path)
     
+model = st.sidebar.radio('Quelle méthode de prédiction voulez-vous utiliser ?',("Choisissez une méthode ", "Réseaux de neurones", "SVM"))
 option = st.sidebar.selectbox('Quel modèle voulez-vous utiliser ?',("Choisissez un modèle", MODEL_PATH_FAMILY, MODEL_PATH_MANUFACTURER, MODEL_PATH_VARIANT))
 
 if option != "Choisissez un modèle": 
