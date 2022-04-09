@@ -58,6 +58,12 @@ def load_model(path):
     """Load tf/Keras model for prediction
     """
     return tf.keras.models.load_model(path)
+
+st.title("Identification d'avion")
+uploaded_file = st.file_uploader("Charger une image d'avion") 
+if uploaded_file:
+    loaded_image = load_image(uploaded_file)
+    st.image(loaded_image)
     
 model = st.sidebar.radio('Quelle méthode de prédiction voulez-vous utiliser ?',("Réseaux de neurones", "SVM"))
 if model =="Réseaux de neurones":
@@ -66,15 +72,6 @@ if model =="Réseaux de neurones":
     if option != "Choisissez un modèle": 
         model = load_model(option)
         model.summary()
-
-        st.title("Identification d'avion")
-
-        uploaded_file = st.file_uploader("Charger une image d'avion") #, accept_multiple_files=True)#
-
-        if uploaded_file:
-            loaded_image = load_image(uploaded_file)
-            st.image(loaded_image)
-
 
         predict_btn = st.button("Identifier", disabled=(uploaded_file is None))
         if predict_btn:
