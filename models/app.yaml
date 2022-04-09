@@ -1,0 +1,7 @@
+---
+IMAGE_WIDTH : 128
+IMAGE_HEIGHT : 128
+IMAGE_DEPTH : 3
+MODEL_PATH_MANUFACTURER : models/planes_manufacturer.h5
+MODEL_PATH_FAMILY : models/planes_family.h5
+MODEL_PATH_VARIANT : models/planes_variant.h5
