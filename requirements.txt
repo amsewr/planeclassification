@@ -7,4 +7,3 @@ keras==2.8.0
 streamlit
 pyyaml
 pillow
-pickle
