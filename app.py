@@ -146,7 +146,7 @@ if method =="SVM":
         
         predict_btn = st.button("Identifier", disabled=(uploaded_file is None))
         if predict_btn:
-            prediction = predict_image_bySVM(uploaded_file, model)
+            #prediction = predict_image_bySVM(uploaded_file, model)
             if option == SVM_PATH_FAMILY:
                 st.write("La prédiction de cette cible n'est pas encore disponible")
                 #st.write(f"C'est un : {CAT_FAMILY[prediction[0]]}")
