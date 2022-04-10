@@ -4,7 +4,6 @@ import streamlit as st
 import tensorflow as tf
 import pandas as pd
 import yaml
-import pickle
 
 from PIL import Image
 from yaml.loader import SafeLoader
