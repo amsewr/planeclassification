@@ -142,7 +142,7 @@ if method =="SVM":
         st.write("Sélectionner votre cible")
     
     if option != "Sélectionner votre cible": 
-        model = load_model_svm(option)
+        #model = load_model_svm(option)
         
         predict_btn = st.button("Identifier", disabled=(uploaded_file is None))
         if predict_btn:
