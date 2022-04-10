@@ -4,6 +4,7 @@ import streamlit as st
 import tensorflow as tf
 import pandas as pd
 import yaml
+import pickle
 
 from PIL import Image
 from yaml.loader import SafeLoader
@@ -135,7 +136,7 @@ if method =="Réseaux de neurones":
                 st.write(pred)
 if method =="SVM":
     st.write("La prédiction est encore en construction...merci de patienter ! ")
-    option = st.sidebar.selectbox('Que voulez-vous identifier ?',("Sélectionner votre cible", SVM_PATH_FAMILY, SVM_PATH_MANUFACTURER, SVM_PATH_VARIANT))
+    option = st.sidebar.selectbox('Que voulez-vous identifier ?',("Sélectionner votre cible", SVM_PATH_FAMILY, SVM_PATH_MANUFACTURER))
     
     if option =="Sélectionner votre cible":
         st.write("Sélectionner votre cible")
@@ -151,8 +152,6 @@ if method =="SVM":
 
             if option == SVM_PATH_MANUFACTURER  :
                 st.write(f"C'est un : {CAT_MANUFACTURER[prediction[0]]}")   
-                
-            if option == SVM_PATH_VARIANT  :
-                st.write(f"C'est un : {CAT_VARIANT[prediction[0]]}")   
+             
                
 
