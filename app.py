@@ -135,7 +135,6 @@ if method =="Réseaux de neurones":
                                    'code':range(0,len(CAT_VARIANT))}).set_index('catégorie')
                 st.write(pred)
 if method =="SVM":
-    st.write("La prédiction est encore en construction... merci de patienter! ")
     option = st.sidebar.selectbox('Que voulez-vous identifier ?',("Sélectionner votre cible", SVM_PATH_FAMILY, SVM_PATH_MANUFACTURER))
     
     if option =="Sélectionner votre cible":
@@ -148,11 +147,11 @@ if method =="SVM":
         if predict_btn:
             #prediction = predict_image_bySVM(uploaded_file, model)
             if option == SVM_PATH_FAMILY:
-                st.write("La prédiction de cette cible n'est pas encore disponible")
+                st.write("La prédiction de cette cible n'est pas encore disponible. Vous pouvez toujours essayer avec les réseaux de neurones!")
                 #st.write(f"C'est un : {CAT_FAMILY[prediction[0]]}")
 
             if option == SVM_PATH_MANUFACTURER:
-                st.write("La prédiction de cette cible n'est pas encore disponible")
+                st.write("La prédiction de cette cible n'est pas encore disponible. Vous pouvez toujours essayer avec les réseaux de neurones!")
                 #st.write(f"C'est un : {CAT_MANUFACTURER[prediction[0]]}")   
              
                
